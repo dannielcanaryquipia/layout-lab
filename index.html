@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Layout Lab · Wireframe Simulator</title>
+<meta name="description" content="Plan your pitch deck slides as wireframes: templates, random layouts, drag and drop blocks, design checks and your own palette.">
+<meta name="theme-color" content="#2A1B12">
+<link rel="icon" href="assets/img/logo-green.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-dice" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8" cy="8" r="1.3" fill="currentColor"/><circle cx="16" cy="8" r="1.3" fill="currentColor"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/><circle cx="8" cy="16" r="1.3" fill="currentColor"/><circle cx="16" cy="16" r="1.3" fill="currentColor"/></symbol>
+  <symbol id="i-mirror" viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M8 7L3 12l5 5z"/><path d="M16 7l5 5-5 5z"/></symbol>
+  <symbol id="i-undo" viewBox="0 0 24 24"><path d="M9 14L4 9l5-5"/><path d="M4 9h11a5 5 0 0 1 0 10h-3"/></symbol>
+  <symbol id="i-redo" viewBox="0 0 24 24"><path d="M15 14l5-5-5-5"/><path d="M20 9H9a5 5 0 0 0 0 10h3"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></symbol>
+  <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-8 8"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></symbol>
+  <symbol id="i-board" viewBox="0 0 24 24"><rect x="3" y="4" width="8" height="6" rx="1"/><rect x="13" y="4" width="8" height="6" rx="1"/><rect x="3" y="14" width="8" height="6" rx="1"/><rect x="13" y="14" width="8" height="6" rx="1"/></symbol>
+  <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .8-1 1.5v.7M12 17v.3"/></symbol>
+  <symbol id="i-save" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M4 19h16"/></symbol>
+  <symbol id="i-open" viewBox="0 0 24 24"><path d="M12 15V3M7 8l5-5 5 5M4 19h16"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16 9.8"/></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.4 1 1.1 1 1.8V16h5v-.3c0-.7.4-1.4 1-1.8A6 6 0 0 0 12 3z"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-print" viewBox="0 0 24 24"><path d="M7 9V3h10v6M7 17H4v-7h16v7h-3"/><rect x="7" y="14" width="10" height="7"/></symbol>
+  <symbol id="i-wand" viewBox="0 0 24 24"><path d="M15 6l3 3M4 20L15 9l0 0 0 0L18 12 7 23zM19 3l.7 1.8L21.5 5.5l-1.8.7L19 8l-.7-1.8L16.5 5.5l1.8-.7zM6 3l.5 1.3L7.8 4.8l-1.3.5L6 6.6l-.5-1.3L4.2 4.8l1.3-.5z"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="brand">
+    <img src="assets/img/logo-green.svg" alt="">
+    <div><p class="app-name">Layout Lab</p><p class="sub">Wireframe simulator · INTAPPS Final Project · Pili &amp; Pearl sample</p></div>
+  </div>
+  <div class="top-actions">
+    <button class="btn" type="button" id="storyBtn"><svg class="ico" aria-hidden="true"><use href="#i-board"/></svg><span class="lbl">Storyboard</span></button>
+    <button class="btn" type="button" id="helpBtn"><svg class="ico" aria-hidden="true"><use href="#i-help"/></svg><span class="lbl">How to use</span></button>
+  </div>
+</header>
+
+<nav class="tabs" id="tabs" aria-label="Slides of your pitch deck"></nav>
+
+<main class="work">
+  <aside class="left panel" aria-labelledby="blocksHead">
+    <h2 class="h" id="blocksHead">Add blocks</h2>
+    <p class="hint">Drag a block onto the slide, or tap it to add.</p>
+    <div class="palette" id="palette"></div>
+  </aside>
+
+  <section class="stage-col" aria-label="Slide editor">
+    <div class="toolbar" role="toolbar" aria-label="Layout tools">
+      <button class="btn primary" type="button" id="randomBtn" title="Make a random layout for this slide (R)"><svg class="ico" aria-hidden="true"><use href="#i-dice"/></svg><span class="lbl">Random layout</span></button>
+      <button class="btn" type="button" id="mirrorBtn" title="Flip left and right (M)"><svg class="ico" aria-hidden="true"><use href="#i-mirror"/></svg><span class="lbl">Mirror</span></button>
+      <span class="sep" aria-hidden="true"></span>
+      <button class="btn" type="button" id="undoBtn" title="Undo (Ctrl+Z)"><svg class="ico" aria-hidden="true"><use href="#i-undo"/></svg><span class="lbl">Undo</span></button>
+      <button class="btn" type="button" id="redoBtn" title="Redo (Ctrl+Y)"><svg class="ico" aria-hidden="true"><use href="#i-redo"/></svg><span class="lbl">Redo</span></button>
+      <span class="sep" aria-hidden="true"></span>
+      <button class="btn" type="button" id="gridBtn" aria-pressed="true" title="Show the 12-column grid (G)"><svg class="ico" aria-hidden="true"><use href="#i-grid"/></svg><span class="lbl">Grid</span></button>
+      <button class="btn" type="button" id="pngBtn" title="Download this slide as a PNG picture"><svg class="ico" aria-hidden="true"><use href="#i-image"/></svg><span class="lbl">PNG</span></button>
+      <button class="btn" type="button" id="copyBtn" title="Copy the block list to rebuild it in Google Slides or Canva"><svg class="ico" aria-hidden="true"><use href="#i-copy"/></svg><span class="lbl">Copy plan</span></button>
+      <button class="btn danger" type="button" id="clearBtn" title="Remove every block from this slide"><svg class="ico" aria-hidden="true"><use href="#i-trash"/></svg><span class="lbl">Clear</span></button>
+    </div>
+
+    <div class="frame">
+      <div class="canvas show-grid" id="canvas" aria-label="Slide canvas, 12 columns by 12 rows">
+        <div class="safe" id="safe">
+          <div class="gridlines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="margin-guide" aria-hidden="true"></div>
+          <div class="blocks" id="blocks"></div>
+          <div class="drop" id="drop" aria-hidden="true"></div>
+          <div class="selbox" id="selbox"><span class="selinfo" id="selinfo" aria-hidden="true"></span><button class="seldel" id="selDel" type="button" title="Delete block" aria-label="Delete block">×</button><span class="handle" id="handle" title="Drag to resize" aria-hidden="true"></span></div>
+        </div>
+        <p class="empty-msg" id="emptyMsg" hidden>Empty slide. Pick a template below, press Random layout, or drag blocks in from the left.</p>
+      </div>
+    </div>
+
+    <div class="meta"><p class="name" id="layoutName"></p><p class="goal" id="slideGoal"></p></div>
+
+    <section aria-labelledby="tplHead">
+      <h2 class="h" id="tplHead">Templates for this slide</h2>
+      <div class="tpl-strip" id="tplStrip"></div>
+    </section>
+  </section>
+
+  <aside class="right" aria-label="Edit, checks and colors">
+    <section class="panel" aria-labelledby="insHead">
+      <h2 class="h" id="insHead">Edit block</h2>
+      <div id="inspector"></div>
+    </section>
+    <section class="panel" aria-labelledby="chkHead">
+      <h2 class="h" id="chkHead">Design checks</h2>
+      <ul class="checks" id="checks"></ul>
+      <div class="score"><span class="meter"><i id="scoreBar"></i></span><b id="scoreText">0 / 0</b></div>
+    </section>
+    <section class="panel" aria-labelledby="colHead">
+      <h2 class="h" id="colHead">Preview</h2>
+      <div class="seg" role="group" aria-label="Preview style"><button type="button" id="wireBtn" aria-pressed="true">Wireframe</button><button type="button" id="colorBtn" aria-pressed="false">Colors</button></div>
+      <button class="btn gen-btn" type="button" id="genBtn" title="Generate a color-theory palette that passes the contrast checks"><svg class="ico" aria-hidden="true"><use href="#i-wand"/></svg>Generate palette</button>
+      <div class="colors" id="colors"></div>
+      <div class="contrast" id="contrast"></div>
+      <div class="opts">
+        <label><input type="checkbox" id="labelsChk" checked> Show block labels</label>
+      </div>
+      <div class="row-btns">
+        <button class="btn" type="button" id="resetColors">Reset colors</button>
+        <button class="btn" type="button" id="saveBtn"><svg class="ico" aria-hidden="true"><use href="#i-save"/></svg>Save file</button>
+        <button class="btn" type="button" id="openBtn"><svg class="ico" aria-hidden="true"><use href="#i-open"/></svg>Open file</button>
+        <button class="btn" type="button" id="resetAll">Start over</button>
+      </div>
+      <input type="file" id="fileIn" accept=".json,application/json" hidden>
+    </section>
+    <section class="panel" aria-labelledby="fontHead">
+      <h2 class="h" id="fontHead">Fonts to use</h2>
+      <p class="hint">Set these in Google Slides, PowerPoint or Canva.</p>
+      <button class="btn gen-btn" type="button" id="genFontBtn" title="Pick another font pairing that works in Slides, PowerPoint and Canva"><svg class="ico" aria-hidden="true"><use href="#i-wand"/></svg>Generate font</button>
+      <div class="fonts" id="fonts"></div>
+      <div class="opts">
+        <label><input type="checkbox" id="sampleChk"> Show sample text on the slide</label>
+      </div>
+      <p class="font-note">Both are free Google Fonts — already in the font menu of Slides and Canva. In PowerPoint, add them once from fonts.google.com, or use the no-install option on each.</p>
+    </section>
+  </aside>
+</main>
+
+<div class="modal" id="storyModal" role="dialog" aria-modal="true" aria-labelledby="storyHead" hidden>
+  <div class="modal-card">
+    <div class="modal-top">
+      <h2 id="storyHead">Your storyboard</h2>
+      <div class="top-actions">
+        <button class="btn" type="button" id="printBtn"><svg class="ico" aria-hidden="true"><use href="#i-print"/></svg>Print or save as PDF</button>
+        <button class="btn dark" type="button" data-close><svg class="ico" aria-hidden="true"><use href="#i-close"/></svg>Close</button>
+      </div>
+    </div>
+    <div class="story" id="story"></div>
+    <div class="palette-print" id="palettePrint" aria-hidden="true"></div>
+  </div>
+</div>
+
+<div class="modal" id="helpModal" role="dialog" aria-modal="true" aria-labelledby="helpHead" hidden>
+  <div class="modal-card">
+    <div class="modal-top">
+      <h2 id="helpHead">How to use Layout Lab</h2>
+      <button class="btn dark" type="button" data-close><svg class="ico" aria-hidden="true"><use href="#i-close"/></svg>Close</button>
+    </div>
+    <div class="help">
+      <div class="panel">
+        <p class="h">Plan a slide</p>
+        <ol>
+          <li>Pick a slide of your pitch at the top: Cover, About us, Menu…</li>
+          <li>Try the templates under the slide, or press <b>Random layout</b> until one gives you an idea.</li>
+          <li>Drag blocks to move them. Drag the blue dot to resize. Everything snaps to the 12-column grid.</li>
+          <li>Add blocks from the left panel: drag them in, or tap to add.</li>
+          <li>Click a block and rename it with what you will really put there, like “Ube cup cutout”.</li>
+        </ol>
+      </div>
+      <div class="panel">
+        <p class="h">Make it good</p>
+        <ol>
+          <li>Turn the design checks green: one focal point, room to breathe, edges on a few columns.</li>
+          <li>Press <b>Colors</b> and type your own palette. Watch the contrast numbers.</li>
+          <li>Type “(dark)” or “(accent)” in a card label to color that card.</li>
+          <li>Open the <b>Storyboard</b> to see all your slides together. Print it or save it as a PDF.</li>
+          <li>Download a <b>PNG</b> for your design brief, or <b>Copy plan</b> and rebuild it in Google Slides (View › Guides) or Canva.</li>
+        </ol>
+      </div>
+      <div class="panel">
+        <p class="h">Keys</p>
+        <ul class="keys">
+          <li><span>Move the selected block</span><kbd>Arrow keys</kbd></li>
+          <li><span>Resize it</span><kbd>Shift + Arrows</kbd></li>
+          <li><span>Duplicate</span><kbd>Ctrl + D</kbd></li>
+          <li><span>Delete</span><kbd>Delete</kbd></li>
+          <li><span>Bring forward / send back</span><kbd>] / [</kbd></li>
+          <li><span>Undo / redo</span><kbd>Ctrl + Z / Ctrl + Y</kbd></li>
+          <li><span>Random layout</span><kbd>R</kbd></li>
+          <li><span>Mirror</span><kbd>M</kbd></li>
+          <li><span>Grid on or off</span><kbd>G</kbd></li>
+        </ul>
+        <p class="tip">Random mixes classic layout patterns: split, bento, columns, bands and sidebars. It is not AI. You choose, change and own every design. Your work saves in this browser by itself; use Save file to keep a copy.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"><span id="toastMsg"></span><button type="button" id="toastBtn" hidden>Undo</button></div>
+
+<script src="js/data.js"></script>
+<script src="js/gen.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
